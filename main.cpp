@@ -21,4 +21,15 @@ struct Vehicle {
 
 // Define a function to simulate traffic flow
 void simulateTraffic(map<string, list<Vehicle>>& trafficMap, int timeIntervals) {
-    for (int time = 0; time < timeIntervals
+    for (int time = 0; time < timeIntervals; time++) {
+        cout << "Time Period: " << time << endl;
+        
+        // Iterate through each intersection in the map
+        for (auto& intersection : trafficMap) {
+            // Display current vehicles at the intersection
+            cout << "Intersection: " << intersection.first << endl;
+            for (const auto& vehicle : intersection.second) {
+                cout << " - " << vehicle.type << " arrived at " << vehicle.arrivalTime << endl;
+            }
+
+            // Simulate traffic light change (
