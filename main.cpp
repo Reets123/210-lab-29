@@ -32,4 +32,19 @@ void simulateTraffic(map<string, list<Vehicle>>& trafficMap, int timeIntervals) 
                 cout << " - " << vehicle.type << " arrived at " << vehicle.arrivalTime << endl;
             }
 
-            // Simulate traffic light change (
+            // Simulate traffic light change (simple logic)
+            if (time % 5 == 0) { // Every 5 time intervals
+                cout << " - Traffic light changes at " << intersection.first << endl;
+
+                // Allow vehicles to depart based on a random chance
+                while (!intersection.second.empty()) {
+                    intersection.second.pop_front(); // Vehicle departs
+                    cout << " - A vehicle has departed from " << intersection.first << endl;
+                }
+            }
+        }
+
+        // Simulate random vehicle arrivals
+        for (int i = 0; i < rand() % 5; i++) { // Random number of vehicles (0-4)
+            Vehicle newVehicle = {"Car", time}; // Example vehicle type
+            string intersectionKey = "Intersection" + to_st
