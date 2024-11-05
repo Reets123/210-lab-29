@@ -65,7 +65,7 @@ int main() {
     map<string, list<Vehicle>> trafficMap;
 
     // Open an external file to read initial data about intersections (if required)
-    ifstream inputFile("traffic_data.csv");
+    ifstream inputFile("traffic_data.txt");
     if (!inputFile) {
         cerr << "Error opening file!" << endl;
         
