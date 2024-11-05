@@ -68,5 +68,19 @@ int main() {
     ifstream inputFile("traffic_data.csv");
     if (!inputFile) {
         cerr << "Error opening file!" << endl;
+        
         return 1; // Exit failure
     }
+
+    // Example: Populate trafficMap with initial intersections (requires file processing)
+    trafficMap["Intersection1"] = {};
+    trafficMap["Intersection2"] = {};
+    trafficMap["Intersection3"] = {};
+    
+    inputFile.close();
+
+    // Begin a time-based simulation for traffic flow
+    simulateTraffic(trafficMap, 25); // Simulate for 25 time periods
+    
+    return 0; 
+}
