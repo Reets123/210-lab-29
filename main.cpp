@@ -47,4 +47,26 @@ void simulateTraffic(map<string, list<Vehicle>>& trafficMap, int timeIntervals) 
         // Simulate random vehicle arrivals
         for (int i = 0; i < rand() % 5; i++) { // Random number of vehicles (0-4)
             Vehicle newVehicle = {"Car", time}; // Example vehicle type
-            string intersectionKey = "Intersection" + to_st
+            string intersectionKey = "Intersection" + to_string(rand() % 3); // Assume 3 intersections
+
+            trafficMap[intersectionKey].push_back(newVehicle);
+            cout << " - A new vehicle arrived at " << intersectionKey << " at time " << time << endl;
+        }
+
+        cout << endl; // For spacing
+    }
+}
+
+// Define main function
+int main() {
+    srand(static_cast<unsigned>(time(0))); // Seed for random generation
+
+    // Initialize a map to store traffic information for intersections
+    map<string, list<Vehicle>> trafficMap;
+
+    // Open an external file to read initial data about intersections (if required)
+    ifstream inputFile("traffic_data.csv");
+    if (!inputFile) {
+        cerr << "Error opening file!" << endl;
+        return 1; // Exit failure
+    }
