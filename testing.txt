@@ -13,3 +13,16 @@
 #include "main.cpp" 
 
 using namespace std; 
+
+// Function to perform tests on loadVehiclesFromFile
+void testLoadVehiclesFromFile() {
+    // Create a test map to store results
+    map<string, list<Vehicle>> testMap;
+
+    // Load vehicles from traffic_data.txt
+    loadVehiclesFromFile("traffic_data.txt", testMap);
+
+    // Assertions to check correct loading
+    assert(testMap["Intersection1"].size() == 2); // Expecting 2 vehicles in Intersection1
+    assert(testMap["Intersection2"].size() == 1); // Expecting 1 vehicle in Intersection2
+
