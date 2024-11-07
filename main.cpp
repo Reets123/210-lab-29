@@ -1,4 +1,4 @@
-// Lab 30: Project Proposal, Pseudocode, & Mockup 
+// Lab 30: Alpha Release
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>
