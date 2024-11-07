@@ -1,4 +1,4 @@
-// Lab 29: Project Proposal, Pseudocode, & Mockup 
+// Lab 30: Project Proposal, Pseudocode, & Mockup 
 // COMSC-210 - Ibrahim Alatig 
 
 // Unit Testing Strategy 
@@ -25,4 +25,17 @@ void testLoadVehiclesFromFile() {
     // Assertions to check correct loading
     assert(testMap["Intersection1"].size() == 2); // Expecting 2 vehicles in Intersection1
     assert(testMap["Intersection2"].size() == 1); // Expecting 1 vehicle in Intersection2
+    assert(testMap["Intersection3"].size() == 0); // Expecting 0 vehicles in Intersection3
 
+    // Validate vehicle types (adjust based on actual Vehicle structure)
+    assert(testMap["Intersection1"].front().type == "Car"); // First vehicle should be "Car"
+    assert(testMap["Intersection2"].front().type == "Truck"); // First vehicle should be "Truck"
+
+    cout << "All tests passed!" << endl;
+}
+
+int main() {
+    testLoadVehiclesFromFile();
+    
+    return 0;
+}

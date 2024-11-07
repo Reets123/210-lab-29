@@ -1,4 +1,4 @@
-// Lab 29: Project Proposal, Pseudocode, & Mockup 
+// Lab 30: Project Proposal, Pseudocode, & Mockup 
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>
