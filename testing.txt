@@ -1,0 +1,15 @@
+// Lab 29: Project Proposal, Pseudocode, & Mockup 
+// COMSC-210 - Ibrahim Alatig 
+
+// Unit Testing Strategy 
+// Test Cases for loadVehiclesFromFile
+// - Verify that the function correctly loads vehicle data from the "traffic_data.txt" file.
+// - Check that the vehicles are added to the correct intersections in the trafficMap.
+
+#include <iostream>
+#include <map>
+#include <list>
+#include <cassert>
+#include "main.cpp" 
+
+using namespace std; 
