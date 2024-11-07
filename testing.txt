@@ -1,0 +1,41 @@
+// Lab 30: Alpha Release
+// COMSC-210 - Ibrahim Alatig 
+
+// Unit Testing Strategy 
+// Test Cases for loadVehiclesFromFile
+// - Verify that the function correctly loads vehicle data from the "traffic_data.txt" file.
+// - Check that the vehicles are added to the correct intersections in the trafficMap.
+
+#include <iostream>
+#include <map>
+#include <list>
+#include <cassert>
+#include "main.cpp" 
+
+using namespace std; 
+
+// Function to perform tests on loadVehiclesFromFile
+void testLoadVehiclesFromFile() {
+    // Create a test map to store results
+    map<string, list<Vehicle>> testMap;
+
+    // Load vehicles from traffic_data.txt
+    loadVehiclesFromFile("traffic_data.txt", testMap);
+
+    // Assertions to check correct loading
+    assert(testMap["Intersection1"].size() == 2); // Expecting 2 vehicles in Intersection1
+    assert(testMap["Intersection2"].size() == 1); // Expecting 1 vehicle in Intersection2
+    assert(testMap["Intersection3"].size() == 0); // Expecting 0 vehicles in Intersection3
+
+    // Validate vehicle types (adjust based on actual Vehicle structure)
+    assert(testMap["Intersection1"].front().type == "Car"); // First vehicle should be "Car"
+    assert(testMap["Intersection2"].front().type == "Truck"); // First vehicle should be "Truck"
+
+    cout << "All tests passed!" << endl;
+}
+
+int main() {
+    testLoadVehiclesFromFile();
+    
+    return 0;
+}

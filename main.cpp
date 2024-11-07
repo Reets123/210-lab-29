@@ -1,4 +1,4 @@
-// Lab 29: Project Proposal, Pseudocode, & Mockup 
+// Lab 30: Alpha Release
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>
@@ -19,11 +19,29 @@ struct Vehicle {
     int arrivalTime; // Time when the vehicle arrives
 };
 
-// Define a function to simulate traffic flow
+// Function to load initial vehicle data from file
+void loadVehiclesFromFile(const string& filename, map<string, list<Vehicle>>& trafficMap) {
+    ifstream inputFile(filename);
+    if (!inputFile) {
+        cerr << "Error opening file!" << endl;
+        return; // Exit function
+    }
+
+    string intersection;
+    while (inputFile >> intersection) {
+        Vehicle vehicle;
+        inputFile >> vehicle.type >> vehicle.arrivalTime;  // Read type and arrival time
+        trafficMap[intersection].push_back(vehicle);
+    }
+
+    inputFile.close();
+}
+
+// Function to simulate traffic flow
 void simulateTraffic(map<string, list<Vehicle>>& trafficMap, int timeIntervals) {
     for (int time = 0; time < timeIntervals; time++) {
         cout << "Time Period: " << time << endl;
-        
+
         // Iterate through each intersection in the map
         for (auto& intersection : trafficMap) {
             // Display current vehicles at the intersection
@@ -44,15 +62,6 @@ void simulateTraffic(map<string, list<Vehicle>>& trafficMap, int timeIntervals) 
             }
         }
 
-        // Simulate random vehicle arrivals
-        for (int i = 0; i < rand() % 5; i++) { // Random number of vehicles (0-4)
-            Vehicle newVehicle = {"Car", time}; // Example vehicle type
-            string intersectionKey = "Intersection" + to_string(rand() % 3); // Assume 3 intersections
-
-            trafficMap[intersectionKey].push_back(newVehicle);
-            cout << " - A new vehicle arrived at " << intersectionKey << " at time " << time << endl;
-        }
-
         cout << endl; // For spacing
     }
 }
@@ -64,23 +73,11 @@ int main() {
     // Initialize a map to store traffic information for intersections
     map<string, list<Vehicle>> trafficMap;
 
-    // Open an external file to read initial data about intersections (if required)
-    ifstream inputFile("traffic_data.txt");
-    if (!inputFile) {
-        cerr << "Error opening file!" << endl;
-        
-        return 1; // Exit failure
-    }
-
-    // Example: Populate trafficMap with initial intersections (requires file processing)
-    trafficMap["Intersection1"] = {};
-    trafficMap["Intersection2"] = {};
-    trafficMap["Intersection3"] = {};
-    
-    inputFile.close();
+    // Load initial data from the file
+    loadVehiclesFromFile("traffic_data.txt", trafficMap);
 
     // Begin a time-based simulation for traffic flow
     simulateTraffic(trafficMap, 25); // Simulate for 25 time periods
-    
+
     return 0; 
 }
