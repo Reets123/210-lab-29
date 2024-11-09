@@ -1,4 +1,4 @@
-// Lab 30: Alpha Release
+// Lab 31: Beta Release
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>

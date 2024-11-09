@@ -1,0 +1,19 @@
+1. Crash on file read: Added error handling for file opening.
+
+2. Vehicles not loading: Fixed input parsing for whitespace.
+
+3. Infinite loop in simulation: Added exit condition for empty vehicle list.
+
+4. Incorrect vehicle type logged: Validated vehicle types and added error messages.
+
+5. Traffic light timing issue: Refactored light change logic to 5-intervals.
+
+6. Early vehicle departure: Adjusted departure logic to match arrival time.
+
+7. Segmentation fault on empty intersection: Added check for empty vehicle list.
+
+8. Output formatting issues: Standardized console output for clarity.
+
+9. Rapid vehicle departure: Refined random departure logic for gradual exit.
+
+10. Memory leaks with vehicles: Ensured proper memory management and cleanup.
